@@ -8,15 +8,16 @@ const StockApp = () => {
 
   const fetchStockData = async () => {
     try {
-      const response = await axios.get('/api/stocks');
+      const response = await axios.get('http://localhost:5000/api/stocks');
+      console.log(response, "running")
       setStockList(response.data);
     } catch (error) {
       console.error('Error fetching stock data:', error);
     }
   };
 
-  const updateCurrentPrice = () => {
-    const selectedStockData = stockList.find(stock => stock.symbol === selectedStock);
+
+  const updateCurrentPrice = () => {    const selectedStockData = stockList.find(stock => stock.symbol === selectedStock);
     if (selectedStockData) {
       setCurrentPrice(selectedStockData.price);
     }
@@ -27,7 +28,7 @@ const StockApp = () => {
     const interval = setInterval(() => {
       fetchStockData();
       updateCurrentPrice();
-    }, 60000); // Fetch data every minute
+    }, 60000); 
     return () => clearInterval(interval);
   }, [selectedStock]);
 
