@@ -1,8 +1,7 @@
-# React + Vite
+Run the Application:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Start the Express server: node server.js in the root directory.
 
-Currently, two official plugins are available:
+Start the React app: npm start in the client directory.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This setup provides a simple example of fetching stock prices from a mock API every minute and displaying them using React for the frontend, Express/Node.js for the backend, and MongoDB for storing stock data. And this is a basic implementation and can be extended and improved in various ways, such as error handling, styling, and more sophisticated data handling.
