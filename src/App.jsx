@@ -1,12 +1,10 @@
-import React from 'react';
-import StockApp from './StockApp.jsx';
-// import StockChart from "./chart";
+// import React from "react";
+import StockApp from "./StockApp.jsx";
 
 function App() {
   return (
     <div className="App">
       <StockApp />
-      {/* <StockChart/> */}
     </div>
   );
 }

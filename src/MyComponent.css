@@ -35,3 +35,20 @@
     margin-top: 10px;
   }
   
+  .chart-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    margin-top: 20px;
+  }
+  
+  /* Style the chart's canvas element */
+  .chart-container canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+  
