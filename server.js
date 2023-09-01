@@ -2,9 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
-
-import cron from "node-cron"
-
+import cron from "node-cron"; // Import node-cron
 
 dotenv.config()
 const app = express();
@@ -22,7 +20,7 @@ const Stock = mongoose.model("Stock", {
 // Sample stock data
 const sampleStocks = [
   { symbol: "AAPL", price: getRandomPrice() },
-  { symbol: "GOOGL", price: getRandomPrice() },
+  { symbol: "GOOGL", price:getRandomPrice() },
   { symbol: "TSLA", price: getRandomPrice() },
 ];
 
@@ -37,6 +35,26 @@ mongoose
   )
   .then(() => console.log("Database connected!"))
   .catch((err) => console.log(err));
+// Function to update stock prices
+const updateStockPrices = async () => {
+  const updatedStocks = sampleStocks.map((stock) => ({
+    symbol: stock.symbol,
+    price: getRandomPrice(),
+  }));
+
+  try {
+    for (const stock of updatedStocks) {
+      await Stock.findOneAndUpdate(
+        { symbol: stock.symbol },
+        { $set: { price: stock.price } }
+      );
+    }
+    console.log("Stock prices updated successfully.");
+  } catch (error) {
+    console.error("Error updating stock prices:", error);
+  }
+};
+
 
 // Schedule the cron job to run every minute
 cron.schedule("* * * * *", updateStockPrices);
