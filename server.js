@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 
+import cron from "node-cron"
+
 
 dotenv.config()
 const app = express();
